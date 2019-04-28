@@ -1,16 +1,6 @@
 require('dotenv').config()
 const request = require('request-promise')
-
-const auth = {}
-
-// twitter info
-auth.twitter_oauth = {
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  token: process.env.USER_TOKEN, // USER SPECIFIC
-  token_secret: process.env.USER_TOKEN_SECRET, // USER SPECIFIC
-}
-
+const { auth } = require('../utils')
 
 // request options
 const request_options = {
@@ -20,7 +10,7 @@ const request_options = {
     'Content-type': 'application/x-www-form-urlencoded'
   },
   form: {
-    url: 'https://makemeachart.herokuapp.com/webhook/twitter'
+    url: 'https://blank-spaced.herokuapp.com/webhook/twitter'
   }
 }
 

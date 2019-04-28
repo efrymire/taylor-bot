@@ -1,15 +1,6 @@
 require('dotenv').config()
 const request = require('request-promise')
-
-var auth = {}
-
-// twitter info
-auth.twitter_oauth = {
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  token: process.env.USER_TOKEN, // USER SPECIFIC
-  token_secret: process.env.USER_TOKEN_SECRET, // USER SPECIFIC
-}
+const { auth } = require('../utils')
 
 // request options
 var request_options = {

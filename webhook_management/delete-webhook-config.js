@@ -7,8 +7,8 @@ const auth = {}
 auth.twitter_oauth = {
   consumer_key: process.env.CONSUMER_KEY,
   consumer_secret: process.env.CONSUMER_SECRET,
-  token: process.env.USER_TOKEN, // USER SPECIFIC
-  token_secret: process.env.USER_TOKEN_SECRET, // USER SPECIFIC
+  token: process.env.ACCESS_TOKEN,
+  token_secret: process.env.TOKEN_SECRET,
 }
 
 
@@ -20,7 +20,7 @@ var request_options = {
 
 
 // GET request to retreive webhook config
-request.get(request_options).then( function (body) {
+request.get(request_options).then(function (body) {
   // parse webhook ID
   var webhook_id = JSON.parse(body)[0].id
 

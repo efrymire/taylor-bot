@@ -1,21 +1,12 @@
 require('dotenv').config()
 const request = require('request-promise')
-
-var auth = {}
-
-// twitter info
-auth.twitter_oauth = {
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  token: process.env.USER_TOKEN, // USER SPECIFIC
-  token_secret: process.env.USER_TOKEN_SECRET, // USER SPECIFIC
-}
+let { auth } = require('../utils')
 
 auth.get_twitter_bearer_token = function () {
 
   // just return the bearer token if we already have one
   if (auth.twitter_bearer_token) {
-    return new Promise (function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       resolve(auth.twitter_bearer_token)
     })
   }
@@ -33,8 +24,8 @@ auth.get_twitter_bearer_token = function () {
     }
   }
 
-  return new Promise (function (resolve, reject) {
-    request(request_options, function(error, response) {
+  return new Promise(function (resolve, reject) {
+    request(request_options, function (error, response) {
       if (error) {
         reject(error)
       }
