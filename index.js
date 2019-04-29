@@ -97,11 +97,11 @@ app.get('/subscriptions', function (request, response) {
   }
 })
 
-// // post the activity
-// app.post('/webhook/twitter', function (request, response) {
-//   tweet_lyrics(request.body)
-//   response.send('200 OK')
-// })
+// post the activity
+app.post('/webhook/twitter', function (request, response) {
+  tweet_lyrics()
+  response.send('200 OK')
+})
 
 /** listen **/
 const server = app.listen(app.get('port'), function () {
