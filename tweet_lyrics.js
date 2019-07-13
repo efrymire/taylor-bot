@@ -22,6 +22,6 @@ module.exports.tweet_lyrics = tweet_lyrics = () => {
 	// const tweet = "test"
 	// console.log(tweet)
 	console.log("running 'tweet_lyrics'")
-	const tweet = " I was riding shotgun with my hair undone in the front seat of his car, He's got a one-hand feel on the steering wheel, The other on my heart, I look around, turn the radio down, he says, 'baby is something wrong?' I say 'nothing, I was just thinking how we don't have a song,'  And he says,"
+	const tweet = " I was riding shotgun with my hair undone in the front seat of his car, He's got a one-hand feel on the steering wheel, The other on my heart"
 	postResponse(createRequestOps(tweet));
 }
