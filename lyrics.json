@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "lyric": "this is the lyric",
+    "song": "song",
+    "album": "album"
+  },
+  {
+    "id": 2,
+    "lyric": "this is the second lyric",
+    "song": "second song",
+    "album": "another album"
+  }
+]

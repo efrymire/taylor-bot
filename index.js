@@ -22,45 +22,8 @@ auth.twitter_oauth = {
   nonce: process.env.OAUTH_NONCE,
 }
 
-// auth.get_twitter_bearer_token = function () {
-
-//   // just return the bearer token if we already have one
-//   if (auth.twitter_bearer_token) {
-//     return new Promise(function (resolve, reject) {
-//       resolve(auth.twitter_bearer_token)
-//     })
-//   }
-
-//   // construct request for bearer token
-//   var request_options = {
-//     url: 'https://api.twitter.com/oauth2/token',
-//     method: 'POST',
-//     auth: {
-//       user: auth.twitter_oauth.consumer_key,
-//       pass: auth.twitter_oauth.consumer_secret
-//     },
-//     form: {
-//       'grant_type': 'client_credentials'
-//     }
-//   }
-
-//   return new Promise(function (resolve, reject) {
-//     request(request_options, function (error, response) {
-//       if (error) {
-//         reject(error)
-//       }
-//       else {
-//         var json_body = JSON.parse(response.body)
-//         console.log("Bearer Token:", json_body.access_token)
-//         auth.twitter_bearer_token = json_body.access_token
-//         resolve(auth.twitter_bearer_token)
-//       }
-//     })
-//   })
-// }
-
-
 get_challenge_response = function (crc_token, consumer_secret) {
+  console.log("in get_challenge_response...")
   hmac = crypto.createHmac('sha256', consumer_secret).update(crc_token).digest('base64')
   return hmac
 }
@@ -99,6 +62,8 @@ app.get('/subscriptions', function (request, response) {
 
 // post the activity
 app.post('/webhook/twitter', function (request, response) {
+  console.log("app.post running")
+  console.log(request.body)
   tweet_lyrics()
   response.send('200 OK')
 })
